@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yzu.recruit.dataaccess.mapper.JobRecruitEntityMapperExt">
+    <resultMap id="JobRecruitExtBaseResultMap" type="JobRecruitEntityExt">
+        <id column="JOBRECRUIT_JOBRECRUITID" property="jobrecruitid" />
+        <result column="JOBRECRUIT_STARTTIME" property="starttime" />
+        <result column="JOBRECRUIT_EXPIRETIME" property="expiretime" />
+        <result column="JOBRECRUIT_PERSON" property="person" />
+        <result column="JOBRECRUIT_TYPE" property="type" />
+        <result column="JOBRECRUIT_DEPARTMENTID" property="departmentid" />
+        <result column="JOBRECRUIT_MARKFORDELETE" property="markfordelete" />
+        <result column="JOBRECRUIT_JOBID" property="jobid" />
+        <result column="JOBRECRUIT_TIMESTAMP" property="timestamp" />
+    </resultMap>
+
+    <resultMap id="JobRecruitExtResultMap" type="JobRecruitEntityExt" extends="JobRecruitExtBaseResultMap">
+        <association property="departmentEntityExt" resultMap="com.yzu.recruit.dataaccess.mapper.DepartmentEntityMapperExt.DepartmentExtResultMap"></association>
+        <association property="jobEntityExt" resultMap="com.yzu.recruit.dataaccess.mapper.JobEntityMapperExt.JobExtResultMap"></association>
+        <association property="jobRequireEntityExts" resultMap="com.yzu.recruit.dataaccess.mapper.JobRequireEntityMapperExt.JobRequireExtResultMap"></association>
+        <association property="jobResponsibilityEntityExts" resultMap="com.yzu.recruit.dataaccess.mapper.JobResponsibilityEntityMapperExt.JobResponsibilityExtResultMap"></association>
+    </resultMap>
+
+    <sql id="JobRecruitBaseColumn">
+        _JobRecruit.JobRecruitID AS JOBRECRUIT_JOBRECRUITID,
+        _JobRecruit.StartTime AS JOBRECRUIT_STARTTIME,
+        _JobRecruit.ExpireTime AS JOBRECRUIT_EXPIRETIME,
+        _JobRecruit.Person AS JOBRECRUIT_PERSON,
+        _JobRecruit.Type AS JOBRECRUIT_TYPE,
+        _JobRecruit.DepartmentID AS JOBRECRUIT_DEPARTMENTID,
+        _JobRecruit.MarkForDelete AS JOBRECRUIT_MARKFORDELETE,
+        _JobRecruit.JobID AS JOBRECRUIT_JOBID,
+        _JobRecruit.Timestamp AS JOBRECRUIT_TIMESTAMP
+    </sql>
+
+    <select id="getJobRecruitEntityExtByID" resultMap="JobRecruitExtResultMap" >
+        SELECT
+            <include refid="JobRecruitBaseColumn" />,
+            <include refid="com.yzu.recruit.dataaccess.mapper.JobRequireEntityMapperExt.JobRequireBaseColumn" />,
+            <include refid="com.yzu.recruit.dataaccess.mapper.JobResponsibilityEntityMapperExt.JobResponsibilityBaseColumn" />,
+            <include refid="com.yzu.recruit.dataaccess.mapper.JobEntityMapperExt.JobBaseColumn" />
+        FROM JobRecruit AS _JobRecruit
+        LEFT JOIN JobRequire AS _JobRequire ON _JobRecruit.JobRecruitID = _JobRequire.JobRecruitID
+        LEFT JOIN JobResponsibility AS _JobResponsibility ON _JobRecruit.JobRecruitID = _JobResponsibility.JobRecruitID
+        LEFT JOIN Job AS _Job ON _JobRecruit.JobID = _Job.JobID
+        WHERE
+            _JobRecruit.JobRecruitID = #{jobRecruitID}
+    </select>
+    
+    <select id="queryJobRecruitEntityExt" resultMap="JobRecruitExtResultMap" >
+        SELECT
+            <include refid="JobRecruitBaseColumn" />,
+            <include refid="com.yzu.recruit.dataaccess.mapper.JobRequireEntityMapperExt.JobRequireBaseColumn" />,
+            <include refid="com.yzu.recruit.dataaccess.mapper.JobResponsibilityEntityMapperExt.JobResponsibilityBaseColumn" />,
+            <include refid="com.yzu.recruit.dataaccess.mapper.JobEntityMapperExt.JobBaseColumn" />
+        FROM JobRecruit AS _JobRecruit
+        LEFT JOIN JobRequire AS _JobRequire ON _JobRecruit.JobRecruitID = _JobRequire.JobRecruitID
+        LEFT JOIN JobResponsibility AS _JobResponsibility ON _JobRecruit.JobRecruitID = _JobResponsibility.JobRecruitID
+        LEFT JOIN Job AS _Job ON _JobRecruit.JobID = _Job.JobID
+    </select>
+
+    <delete id="deleteByJobRecruitID" parameterType="java.lang.Integer">
+        DELETE FROM 
+            JobRecruit
+        WHERE
+            JobRecruitID = #{JobRecruitID,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="saveJobRecruitEntityExt" parameterType="JobRecruitEntityExt">
+        <selectKey resultType="java.lang.Integer" keyProperty="departmentrequirementid" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO
+            JobRecruit (
+                StartTime,
+                ExpireTime,
+                Person,
+                Type,
+                JobID,
+                DepartmentID,
+                MarkForDelete
+            ) VALUES (
+                #{starttime},
+                #{expiretime},
+                #{person},
+                #{type},
+                #{jobid},
+                #{departmentid},
+                #{markfordelete}
+            )
+    </insert>
+
+    <update id="updateByJobRecruitID" parameterType="JobRecruitEntityExt">
+        UPDATE
+            JobRecruit
+        SET
+            StartTime = #{starttime},
+            ExpireTime = #{expiretime},
+            Person = #{person},
+            Type = #{type},
+            DepartmentID = #{departmentid},
+            MarkForDelete = #{markfordelete}
+        WHERE
+            JobRecruitID = #{jobrecruitid}
+    </update>
+</mapper>

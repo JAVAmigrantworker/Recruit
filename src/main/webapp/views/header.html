@@ -1,0 +1,27 @@
+<div id="header" ng-controller="HeaderCtrl">
+  <div id="header-top">
+    <div class="maxwidth">
+      <a href="index.html" class="left" id="logo"> 
+        <img src="http://imgcache.qq.com/ac/www_tencent/hr/img/logo.png" />
+      </a>
+      <div id="header-info" class="right">
+        <span ng-show="user">
+            您好！ {{user.name}}
+        </span>
+        <a href="#/login" id="header-login">登录</a> <a
+          href="#/register" id="header-register">注册</a>
+      </div>
+    </div>
+  </div>
+  <div id="menus">
+    <div class="maxwidth">
+      <ul id="menu" class="left">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="">认识腾讯</a></li>
+        <li><a href="">人在腾讯</a></li>
+        <li><a href="#/resume">个人简历</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>

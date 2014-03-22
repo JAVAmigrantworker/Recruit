@@ -1,0 +1,180 @@
+a {
+    color: #464646;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover,a:focus {
+    color: #3498DB;
+    text-decoration: underline;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+ui,li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+body {
+    background-color: #EEF3FA;
+    color: #606060;
+    font-size: 14px;
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    min-width: 1000px;
+    margin: 0 auto;
+}
+
+.maxwidth {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.box10 {
+    padding: 10px;
+}
+
+.blueline {
+    border-bottom:1px solid #69CBF1;
+}
+
+.breadline {
+    color: #1F5A87;
+    font-size: 18px;
+}
+
+.red {
+    color: red;
+}
+
+#logo {
+    padding: 10px 0;
+}
+
+#header-top {
+    height: 70px;
+}
+
+#menus {
+    height: 36px;
+    background-color: #4B7195;
+    clear: both;
+}
+
+#menus li a {
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    height: 36px;
+    width: 132px;
+    line-height: 36px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#menus li a:hover {
+    text-decoration: none;
+    background-color: #6895BE;
+}
+
+#menus li {
+    float: left;
+    padding-right: 10px;
+}
+
+#register {
+    padding-top: 12px;
+}
+
+#regdiv{
+    padding-top: 100px;
+}
+
+#regdiv #userForm {
+    margin-left: 264px;
+}
+
+.validation-span{
+  width: 200px;
+  margin-left: 10px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.validation-error {
+  color: #E74C3C;
+}
+
+
+.validation-ok {
+  color: #5D5;
+}
+
+.user-register-form .span2 input {
+  border-radius: 2px; 
+  -webkit-border-radius: 2px;
+  height: 26px;
+  width: 226px;
+  margin: 0;
+  background-color: #FFF;
+  border: 1px solid #ABC1CE;
+  padding: 2px;
+}
+
+.user-register-form label {
+    display: inline-block;
+    font-size: 16px;
+    width: 100px;
+}
+
+.user-register-form .row {
+    margin-top: 20px;
+}
+
+.user-register-form .error-message-row {
+    margin-left: 100px;
+    color: red;
+}
+
+#register {
+    background-color: white;
+    margin-top: 20px;
+    min-height: 500px;
+}
+
+.user-register-form .submit button {
+    margin-top: 20px;
+    margin-left: 103px;
+    background-color: #F77A13;
+    width: 82px;
+    height: 36px;
+    color: white;
+    font-size: 15px;
+}
+
+.resume li {
+	width: 200px;
+	height: 30px;
+}
+
+.resume .active {
+	background-color: #2980B9;
+}

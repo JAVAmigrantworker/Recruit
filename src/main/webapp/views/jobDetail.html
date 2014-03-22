@@ -1,0 +1,55 @@
+<div id="position_detail" class="maxwidth" ng-init="init()">
+    <div class="box wcont_a">
+        <div class="blueline">
+            <div class="butzwss left"></div>
+            <div class="clr"></div>
+        </div>
+        <table class="tablelist textl" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr class="h">
+                    <td colspan="3" class="l2 bold size16" id="sharetitle">{{jobRecruit.jobEntityExt.name}}</td>
+                </tr>
+                <tr class="c bottomline">
+                    <td><span class="lightblue l2">工作地点：</span>鍖椾含</td>
+                    <td><span class="lightblue">职位类别：</span>{{jobRecruit.type}}</td>
+                    <td><span class="lightblue">招聘人数:</span>{{jobRecruit.person}}</td>
+                </tr>
+                <tr class="c">
+                    <td colspan="3" class="l2">
+                        <div class="lightblue">工作职责:</div>
+                        <ul class="squareli">
+                            <li ng-repeat="jobRequire in jobRecruit.jobRequireEntityExts">{{jobRequire.description}}</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="c">
+                    <td colspan="3" class="l2">
+                        <div class="lightblue">工作要求:</div>
+                        <ul class="squareli">
+                            <li ng-repeat="jobResponsibility in jobRecruit.jobResponsibilityEntityExts">{{jobResponsibility.description}}</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="c">
+                    <td colspan="3" class="l2">
+                        <button id="apppos" type="button" class="but2 left" onclick="applyPosition(14937);">鐢宠宀椾綅</button>
+                        <button type="button" class="but1 left ml9" onclick="applyPosition(14937,true);">鏀惰棌宀椾綅</button>
+                        <div id="applyshow" class="ajaxshow none"></div>
+                        <div class="clr"></div>
+                    </td>
+                </tr>
+                <tr class="c">
+                    <td colspan="3" class="l2 shares"><span class="left">鍒嗕韩鍒帮細</span>
+                        <a href="javascript:;" onclick="shareto(&#39;qqt&#39;);" id="qqt" title="鍒嗕韩鍒拌吘璁井鍗�>鍒嗕韩鍒拌吘璁井鍗�/a>
+                        <a href="javascript:;" onclick="shareto(&#39;qzone&#39;);" id="qzone" title="鍒嗕韩鍒癚Q绌洪棿">鍒嗕韩鍒癚Q绌洪棿</a>
+                        <a href="javascript:;" onclick="shareto(&#39;pengyou&#39;);" id="pengyou" title="鍒嗕韩鍒拌吘璁湅鍙�>鍒嗕韩鍒拌吘璁湅鍙�/a>
+                        <a href="javascript:;" onclick="shareto(&#39;sinat&#39;);" id="sinat" title="鍒嗕韩鍒版柊娴井鍗�>鍒嗕韩鍒版柊娴井鍗�/a>
+                        <a href="javascript:;" onclick="shareto(&#39;renren&#39;);" id="renren" title="鍒嗕韩鍒颁汉浜虹綉">鍒嗕韩鍒颁汉浜虹綉</a>
+                        <a href="javascript:;" onclick="shareto(&#39;kaixin001&#39;);" id="kaixin" title="鍒嗕韩鍒板紑蹇冪綉">鍒嗕韩鍒板紑蹇冪綉</a>
+                        <div class="clr"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

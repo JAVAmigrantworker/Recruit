@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="recruitApp">
+<head>
+<title>Recruit</title>
+<link rel="stylesheet" href="styles/app.css" />
+<link rel="stylesheet" href="styles/css/awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles/css/awesome/css/all.css">
+<link rel="stylesheet" href="styles/css/awesome/css/thickbox.css">
+<script src="scripts/common/CommonUtil.js"></script>
+<script src="scripts/common/Constant.js"></script>
+<script src="scripts/angular/angular.js"></script>
+<script src="scripts/angular/angular-resource.js"></script>
+<script src="scripts/app.js"></script>
+
+<script src="scripts/controllers/HeaderCtrl.js"></script>
+<script src="scripts/controllers/HomeCtrl.js"></script>
+<script src="scripts/controllers/RegCtrl.js"></script>
+<script src="scripts/controllers/LoginCtrl.js"></script>
+<script src="scripts/controllers/JobDetailCtrl.js"></script>
+<script src="scripts/controllers/ResumeCtrl.js"></script>
+
+<script src="scripts/directives/validation.js"></script>
+<script src="scripts/services/ResourceService.js"></script>
+<script src="scripts/services/ui-bootstrap-tpls-0.10.0.js"></script>
+
+
+</head>
+<body>
+  <div ng-include="'views/header.html'"></div>
+  <div ng-view></div>
+</body>
+</html>

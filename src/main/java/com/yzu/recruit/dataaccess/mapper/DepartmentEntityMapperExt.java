@@ -1,0 +1,12 @@
+package com.yzu.recruit.dataaccess.mapper;
+
+import com.yzu.recruit.dataaccess.mapper.gen.DepartmentEntityMapper;
+import com.yzu.recruit.dataaccess.model.DepartmentEntityExt;
+
+public interface DepartmentEntityMapperExt extends DepartmentEntityMapper {
+
+    int saveDepartment(DepartmentEntityExt departmentEntityExt);
+
+    DepartmentEntityExt getDepartment(int departmentID);
+
+}
