@@ -46,7 +46,7 @@
             _JobRecruit.JobRecruitID = #{jobRecruitID}
     </select>
     
-    <select id="queryJobRecruitEntityExt" resultMap="JobRecruitExtResultMap" >
+    <select id="queryJobRecruitEntityExts" resultMap="JobRecruitExtResultMap" parameterType="map" >
         SELECT
             <include refid="JobRecruitBaseColumn" />,
             <include refid="com.yzu.recruit.dataaccess.mapper.JobRequireEntityMapperExt.JobRequireBaseColumn" />,

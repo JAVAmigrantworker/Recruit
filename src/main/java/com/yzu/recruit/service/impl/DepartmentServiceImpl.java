@@ -16,8 +16,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public DepartmentEntityExt getDepartment(int departmentID) {
-        // TODO Auto-generated method stub
-        return null;
+        return new DepartmentEntityExt();
     }
 
 
